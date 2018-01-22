@@ -12,6 +12,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'fatih/vim-go'
+Plug 'sebdah/vim-delve'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'vim-scripts/SuperTab'
 Plug 'godoctor/godoctor.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -40,6 +43,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'w0rp/ale'
 
 Plug 'slashmili/alchemist.vim'
 Plug 'https://github.com/elixir-editors/vim-elixir.git'
@@ -52,6 +56,7 @@ Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
 
 Plug 'rust-lang/rust.vim'
+Plug 'direnv/direnv.vim'
 
 call plug#end()
 
@@ -82,3 +87,28 @@ noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
 noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
 noremap <silent> S :call LanugageClient_textDocument_documentSymbol()<CR>
 " }}}
+
+let g:go_auto_type_info = 1
+let g:go_addtags_transform = "snakecase"
+let g:go_snippet_engine = "neosnippet"
+
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif

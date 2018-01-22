@@ -52,7 +52,7 @@ set undofile
 " 
 colorscheme solarized
 set background=dark " or dark
-set t_Co=256
+" set t_Co=256
 let g:solarized_termcolors = 256
 let g:solarized_termtrans = 1
 
@@ -337,7 +337,6 @@ if has("gui_running")
   set mouse=v
   set guifont=Monaco:h12 "<- Maybe a good idea when using mac
 endif
-set guifont=Monaco:h12
 
 "  ---------------------------------------------------------------------------
 "  Directories
