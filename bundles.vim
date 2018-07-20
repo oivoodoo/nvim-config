@@ -18,6 +18,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'vim-scripts/SuperTab'
 Plug 'godoctor/godoctor.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'thoughtbot/vim-rspec'
 Plug 'rlue/vim-fold-rspec'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-scripts/L9'
@@ -57,6 +58,16 @@ Plug 'tpope/vim-bundler'
 
 Plug 'rust-lang/rust.vim'
 Plug 'direnv/direnv.vim'
+
+Plug 'derekwyatt/vim-scala'
+Plug 'majutsushi/tagbar'
+Plug 'jdonaldson/vaxe'
+
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/denite.nvim'
+
 
 call plug#end()
 
@@ -112,3 +123,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command='!bundle exec rspec {spec}'
+
+let g:deoplete#enable_at_startup = 1

@@ -6,4 +6,8 @@ source ~/.config/nvim/bundles.vim
 source ~/.config/nvim/config.vim
 source ~/.config/nvim/mac.vim
 
-set background=dark
+set tags=tags;/
+set background=light
+set re=1
+
+autocmd FileType haxe setlocal shiftwidth=4 tabstop=4 sts=0 expandtab
