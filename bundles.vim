@@ -133,4 +133,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command='!bundle exec rspec {spec}'
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+"
+let g:python3_host_prog=glob('~/.pyenv/versions/neovim3/bin/python')
+let g:python_host_prog=glob('~/.pyenv/versions/neovim2/bin/python')
